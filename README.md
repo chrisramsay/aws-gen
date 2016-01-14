@@ -8,6 +8,6 @@ docker run \
 -e AWS_ACCESS_KEY=MY_ACCESS_KEY \
 -e AWS_SECRET_KEY=MY_SECRET_KEY \
 -e EC2_URL=https://ec2.eu-west-1.amazonaws.com \
--ti chrisramsay/boto-aws \
+-ti chrisramsay/docker-boto-aws \
 /bin/bash
 ```
