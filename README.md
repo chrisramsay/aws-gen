@@ -1,6 +1,10 @@
 # docker-boto-aws
 Docker machine for working on AWS projects.
 
+## run.sh File
+
+Copy the `run.sh.tpl` file to `run.sh` and add in your AWS details
+
 ```
 docker run \
 -p 80:8888 \
@@ -11,3 +15,5 @@ docker run \
 -ti chrisramsay/docker-boto-aws \
 /bin/bash
 ```
+
+Then execute the `run.sh` file and off you go...
