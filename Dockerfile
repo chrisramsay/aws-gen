@@ -1,4 +1,5 @@
 FROM python:2.7
+MAINTAINER Chris Ramsay <chris@ramsay-family.net>
 
 RUN apt-get -y update && apt-get install -y \
   python \
