@@ -1,2 +1,4 @@
 ipython
 boto3
+requests
+python-consul
