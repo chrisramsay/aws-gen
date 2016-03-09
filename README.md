@@ -1,4 +1,4 @@
-# docker-aws-gen
+# aws-gen
 Docker machine for working on AWS projects.
 
 Has some general use libraries for the following:
