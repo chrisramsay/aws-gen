@@ -15,17 +15,20 @@ Generalised Docker container for AWS & other tasks. Has support for the followin
 Copy the `run.sh.tpl` file to `run.sh` and add in your AWS details:
 
 ```bash
-    #!/bin/bash
+#!/bin/bash
 
-    docker rm -f boto-aws
-    docker run \
-    --name boto-aws \
-    -p 80:8888 \
-    -v ~/myproject:/project \
-    -e CONSUL_KEY= \
-    -e AWS_ACCESS_KEY= \
-    -e AWS_SECRET_KEY= \
-    -e EC2_URL=https://ec2.eu-west-1.amazonaws.com \
+docker rm -f boto-aws
+docker run \
+--name boto-aws \
+-p 80:8888 \
+-v ~/myproject:/project \
+-e CONSUL_KEY= \
+-e AWS_ACCESS_KEY= \
+-e AWS_SECRET_KEY= \
+-e EC2_URL=https://ec2.eu-west-1.amazonaws.com \
+-ti \
+chrisramsay/aws-gen \
+/bin/bash
 ```
 
 To run the container:
