@@ -1,0 +1,35 @@
+# aws-gen
+
+## Intro
+
+Generalised Docker container for AWS & other tasks. Has support for the following:
+
+* ipython - nice interactive Python shell
+* boto3 - for AWS
+* pika - for RabbitMQ
+* python-consul - for Consul
+* Fabric - for general server tasks
+
+## General Use
+
+Copy the `run.sh.tpl` file to `run.sh` and add in your AWS details:
+
+```bash
+    #!/bin/bash
+
+    docker rm -f boto-aws
+    docker run \
+    --name boto-aws \
+    -p 80:8888 \
+    -v ~/myproject:/project \
+    -e CONSUL_KEY= \
+    -e AWS_ACCESS_KEY= \
+    -e AWS_SECRET_KEY= \
+    -e EC2_URL=https://ec2.eu-west-1.amazonaws.com \
+```
+
+To run the container:
+
+`$ ./run.sh`
+
+Edit the `run.sh` file to add as many extra mount commands as you need.
