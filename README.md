@@ -17,9 +17,9 @@ Copy the `run.sh.tpl` file to `run.sh` and add in your AWS details:
 ```bash
 #!/bin/bash
 
-docker rm -f boto-aws
+docker rm -f aws-gen
 docker run \
---name boto-aws \
+--name aws-gen \
 -p 80:8888 \
 -v ~/myproject:/project \
 -e CONSUL_KEY= \
