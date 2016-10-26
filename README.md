@@ -37,3 +37,9 @@ To run the container:
 `$ ./run.sh`
 
 Edit the `run.sh` file to add as many extra mount commands as you need.
+
+***
+
+[![](https://images.microbadger.com/badges/image/chrisramsay/aws-gen.svg)](https://microbadger.com/images/chrisramsay/aws-gen "Get your own image badge on microbadger.com")
+
+[![](https://images.microbadger.com/badges/version/chrisramsay/aws-gen.svg)](https://microbadger.com/images/chrisramsay/aws-gen "Get your own version badge on microbadger.com")
