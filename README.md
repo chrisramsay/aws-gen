@@ -38,7 +38,9 @@ To run the container:
 
 Edit the `run.sh` file to add as many extra mount commands as you need.
 
-# Stuff
+# Image Layers
+
+Download size and number of layers.
 
 [![](https://images.microbadger.com/badges/image/chrisramsay/aws-gen.svg)](https://microbadger.com/images/chrisramsay/aws-gen "Get your own image badge on microbadger.com")
 
