@@ -6,14 +6,14 @@ ARG BUILD_DATE
 ARG VCS_REF
 ARG VCS_URL
 ARG VERSION
-LABEL org.label-schema.build-date="2016-10-27T11:42:54Z" \
+LABEL org.label-schema.build-date="$BUILD_DATE" \
       org.label-schema.name="aws-gen" \
       org.label-schema.description="Machine for interacting with AWS infrastructure" \
       org.label-schema.url="https://github.com/chrisramsay/aws-gen" \
-      org.label-schema.vcs-ref="dd9caaa" \
-      org.label-schema.vcs-url="git@github.com:chrisramsay/aws-gen.git" \
+      org.label-schema.vcs-ref="$VCS_REF" \
+      org.label-schema.vcs-url="$VCS_URL" \
       org.label-schema.vendor="Chris Ramsay" \
-      org.label-schema.version="0.13.0" \
+      org.label-schema.version="$VERSION" \
       org.label-schema.schema-version="1.0"
 
 RUN apt-get -y update && apt-get install -y \

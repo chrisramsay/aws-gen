@@ -55,6 +55,26 @@ s3               sdb              ses              snowball         sqs         
 s3api            servicecatalog   sms              sns              ssm              sts              swf
 ```
 
+## Build Process
+
+There is a `build.sh` file packaged here. This is to enable further development of the container. There are a number of possible options to be passed at run time.
+
+### build-latest
+
+Runs the standard `docker build` command with a few build arguments; tags as latest but picks up build version from the `VERSION` file.
+
+### build-version
+
+Runs the standard `docker build` command with a few build arguments; tags as version from `VERSION` file.
+
+### prepare
+
+Does not execute `docker build`. Instead modifies the `Dockerfile` replacing in-place values from the `Dockerfile.tmpl` with label values. This should be done prior to a tagged release.
+
+### restore
+
+Should can run after the `prepare` option is used in order to reinstate the normal `Dockerfile`.
+
 ***
 
 [![](https://images.microbadger.com/badges/image/chrisramsay/aws-gen.svg)](https://microbadger.com/images/chrisramsay/aws-gen "Get your own image badge on microbadger.com")
