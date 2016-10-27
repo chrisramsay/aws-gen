@@ -55,7 +55,7 @@ s3               sdb              ses              snowball         sqs         
 s3api            servicecatalog   sms              sns              ssm              sts              swf
 ```
 
-## Build Process
+## Build Script
 
 There is a `build.sh` file packaged here. This is to help with further development of the container. One of a number of possible options must be passed at run time.
 
@@ -67,13 +67,23 @@ Runs the standard `docker build` command with a few build arguments; tags as lat
 
 Runs the standard `docker build` command with a few build arguments; tags and adds build version from `VERSION` file.
 
-### prepare
+### release
 
 Does not execute `docker build`. Instead modifies the `Dockerfile` replacing in-place values from the `Dockerfile.tmpl` with label values. This should be done prior to a tagged release.
 
 ### restore
 
-Should be run after the `prepare` option is used in order to reinstate the normal `Dockerfile` for continuing development. Should be run at the beginning of a new release branch.
+Used in order to reinstate the normal `Dockerfile` for continuing development. Utility function only.
+
+## Development Process
+
+* Create a new release branch
+* Bump the version number in `build/VERSION`
+* Run `$ ./build.sh restore` to set up a clean `Dockerfile`
+* Make any required changes to `build/Dockerfile.tmpl`
+* Run `$ ./build.sh build-version` or `$ ./build.sh build-latest` as required
+* Once all the work is complete, run `$ ./build.sh release`
+* Merge and tag the release
 
 ***
 

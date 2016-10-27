@@ -26,7 +26,7 @@ do_build_version()
                  -t chrisramsay/aws-gen:$VERSION ../
 }
 
-do_prepare()
+do_release()
 {
     do_restore
     sed -i.bak 's#BUILD_DATE#'"$BUILD_DATE"'#g' $DOCKERFILE
@@ -48,14 +48,14 @@ case "$1" in
     build-version)
         do_build_version
         ;;
-    prepare)
-        do_prepare
+    release)
+        do_release
         ;;
     restore)
         do_restore
         ;;
 *)
-echo "Usage: $NAME {build-latest|build-version|prepare|restore}" >&2
+echo "Usage: $NAME {build-latest|build-version|release|restore}" >&2
 exit 1
 esac
 
