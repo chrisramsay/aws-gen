@@ -57,7 +57,7 @@ s3api            servicecatalog   sms              sns              ssm         
 
 ## Build Process
 
-There is a `build.sh` file packaged here. This is to enable further development of the container. There are a number of possible options to be passed at run time.
+There is a `build.sh` file packaged here. This is to help with further development of the container. One of a number of possible options must be passed at run time.
 
 ### build-latest
 
@@ -65,7 +65,7 @@ Runs the standard `docker build` command with a few build arguments; tags as lat
 
 ### build-version
 
-Runs the standard `docker build` command with a few build arguments; tags as version from `VERSION` file.
+Runs the standard `docker build` command with a few build arguments; tags and adds build version from `VERSION` file.
 
 ### prepare
 
@@ -73,7 +73,7 @@ Does not execute `docker build`. Instead modifies the `Dockerfile` replacing in-
 
 ### restore
 
-Should can run after the `prepare` option is used in order to reinstate the normal `Dockerfile`.
+Should be run after the `prepare` option is used in order to reinstate the normal `Dockerfile` for continuing development. Should be run at the beginning of a new release branch.
 
 ***
 
