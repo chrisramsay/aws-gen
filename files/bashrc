@@ -26,3 +26,6 @@ alias cp='cp -i'
 alias ll='ls -lF'
 alias la='ls -alF'
 alias ls='ls -F'
+
+# AWS CLI command completion
+complete -C '/usr/local/bin/aws_completer' aws
