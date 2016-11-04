@@ -10,5 +10,5 @@ docker run \
 -e AWS_DEFAULT_REGION=eu-west-1 \
 -e EC2_URL=https://ec2.eu-west-1.amazonaws.com \
 -ti \
-chrisramsay/aws-gen \
+chrisramsay/aws-gen:latest \
 /bin/bash

@@ -4,7 +4,7 @@
 
 Generalised Docker container for AWS & other tasks. Has support for the following:
 
-* vi - because you always need `vi` some time.
+* vi - because you'll need `vi` at some point.
 * ipython - nice interactive Python shell.
 * boto3 - Python library for using AWS.
 * pika - Python library for RabbitMQ.
