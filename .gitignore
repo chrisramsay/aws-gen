@@ -56,5 +56,4 @@ docs/_build/
 target/
 
 # Most importantly!
-run.sh
-run-home.sh
+/*.sh

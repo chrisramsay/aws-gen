@@ -5,34 +5,28 @@ BUILD_DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 VCS_REF=$(git rev-parse HEAD)
 VCS_URL=$(git config --get remote.origin.url)
 VERSION=$(cat VERSION)
+IMAGE=chrisramsay/aws-gen
 
-do_build_latest()
+do_build()
 {
     do_restore
     docker build --build-arg BUILD_DATE=$BUILD_DATE \
                  --build-arg VCS_REF=$VCS_REF \
                  --build-arg VCS_URL=$VCS_URL \
                  --build-arg VERSION=$VERSION \
-                 -t chrisramsay/aws-gen:latest ../
-}
-
-do_build_version()
-{
-    do_restore
-    docker build --build-arg BUILD_DATE=$BUILD_DATE \
-                 --build-arg VCS_REF=$VCS_REF \
-                 --build-arg VCS_URL=$VCS_URL \
-                 --build-arg VERSION=$VERSION \
-                 -t chrisramsay/aws-gen:$VERSION ../
+                 -t $IMAGE:$VERSION ../ &&
+                 (
+                    docker tag $IMAGE:$VERSION $IMAGE:latest
+                 )
 }
 
 do_release()
 {
     do_restore
-    sed -i.bak 's#BUILD_DATE#'"$BUILD_DATE"'#g' $DOCKERFILE
-    sed -i.bak 's#VCS_REF#'"$VCS_REF"'#g' $DOCKERFILE
-    sed -i.bak 's#VCS_URL#'"$VCS_URL"'#g' $DOCKERFILE
-    sed -i.bak 's#VERSION#'"$VERSION"'#g' $DOCKERFILE
+    sed -i.bak 's#r_BUILD_DATE#'"$BUILD_DATE"'#g' $DOCKERFILE
+    sed -i.bak 's#r_VCS_REF#'"$VCS_REF"'#g' $DOCKERFILE
+    sed -i.bak 's#r_VCS_URL#'"$VCS_URL"'#g' $DOCKERFILE
+    sed -i.bak 's#r_VERSION#'"$VERSION"'#g' $DOCKERFILE
     rm -f $DOCKERFILE.bak
 }
 
@@ -42,11 +36,8 @@ do_restore()
 }
 
 case "$1" in
-    build-latest)
-        do_build_latest
-        ;;
-    build-version)
-        do_build_version
+    build)
+        do_build
         ;;
     release)
         do_release
@@ -55,7 +46,7 @@ case "$1" in
         do_restore
         ;;
 *)
-echo "Usage: $NAME {build-latest|build-version|release|restore}" >&2
+echo "Usage: $NAME {build|release|restore}" >&2
 exit 1
 esac
 
