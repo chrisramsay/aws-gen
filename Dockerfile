@@ -6,11 +6,11 @@ ARG BUILD_DATE
 ARG VCS_REF
 ARG VCS_URL
 ARG VERSION
-LABEL org.label-schema.build-date="2017-06-02T13:38:42Z" \
+LABEL org.label-schema.build-date="2017-06-05T10:11:12Z" \
       org.label-schema.name="aws-gen" \
       org.label-schema.description="Machine for interacting with AWS infrastructure" \
       org.label-schema.url="https://github.com/chrisramsay/aws-gen" \
-      org.label-schema.vcs-ref="bd4fbb25fe073184057b56db0fe67ceb6228648b" \
+      org.label-schema.vcs-ref="9d0405ec99f809c682235f1232192e7e5fc261d2" \
       org.label-schema.vcs-url="git@github.com:chrisramsay/aws-gen.git" \
       org.label-schema.vendor="Chris Ramsay" \
       org.label-schema.version="0.14.0" \
@@ -21,7 +21,8 @@ RUN apt-get -y update && apt-get install -y \
   python-dev \
   python-pip \
   git \
-  groff
+  groff \
+  vim
 
 WORKDIR /srv
 ADD requirements.txt /srv/requirements.txt
