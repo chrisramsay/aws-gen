@@ -21,7 +21,8 @@ RUN apt-get -y update && apt-get install -y \
   python-dev \
   python-pip \
   git \
-  groff
+  groff \
+  vim
 
 WORKDIR /srv
 ADD requirements.txt /srv/requirements.txt
