@@ -57,3 +57,5 @@ target/
 
 # Most importantly!
 /*.sh
+.DS_Store
+._.DS_Store
