@@ -6,3 +6,5 @@ python-consul
 Fabric
 pycrypto
 awscli
+pylint
+
