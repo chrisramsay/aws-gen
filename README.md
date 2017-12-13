@@ -5,13 +5,16 @@
 Generalised Docker container for AWS & other tasks. Has support for the following:
 
 * vi - because you'll need `vi` at some point.
+* AWS CLI - Command line interface for using Amazon Web Services.
 * ipython - nice interactive Python shell.
 * boto3 - Python library for using AWS.
 * pika - Python library for RabbitMQ.
+* requests - HTTP request handling library.
 * python-consul - Python library for Consul.
 * Fabric - Python library for scipting general remote server tasks.
-* AWS CLI - Command line interface for using Amazon Web Services.
-
+* pycrypto - Crypt support library for Python.
+* pylint - Keep your Python code up to scratch.
+* redis - Redis support for Python.
 ## General Use
 
 Copy the `run.sh.tpl` file to something else, say, `run.sh` and add in your AWS details:
@@ -78,7 +81,7 @@ Used in order to reinstate the normal `Dockerfile` for continuing development. U
 * Bump the version number in `build/VERSION`
 * Run `$ ./build.sh restore` to set up a clean `Dockerfile`
 * Make any required changes to `build/Dockerfile.tmpl`
-* Run `$ ./build.sh build-latest` to build current tag and latest
+* Run `$ ./build.sh build` to build current tag and latest
 * Once all the work is complete, run `$ ./build.sh release`
 * Merge and tag the release
 
