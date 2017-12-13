@@ -7,4 +7,5 @@ Fabric
 pycrypto
 awscli
 pylint
+redis
 
